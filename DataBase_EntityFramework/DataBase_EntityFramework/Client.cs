@@ -5,8 +5,6 @@ namespace DataBase_EntityFramework;
 
 public class Client
 {
-    [Key]
-    public int ID { get; set; }
 
     [Required]
     [MaxLength(50)]
@@ -19,14 +17,16 @@ public class Client
     [MaxLength(15)]
     public string PhoneNumber { get; set; }
 
+    [Key]
     [MaxLength(100)]
     public string Email { get; set; }
 
     [MaxLength(20)]
     public string DriverLicense { get; set; }
 
-    public DateTimeOffset BirthDate { get; set; }
+    public DateOnly BirthDate { get; set; }
 
     // Navigation property
-    public ICollection<Rent> Rents { get; set; }
+    public ICollection<Rent>? Rents { get; set; }
+    public ICollection<Review>? Reviews { get; set; }
 }

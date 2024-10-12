@@ -10,9 +10,9 @@ public class Rent
     public int ID { get; set; }
 
     [Required]
-    public DateTimeOffset StartDate { get; set; }
+    public DateOnly StartDate { get; set; }
 
-    public DateTimeOffset EndDate { get; set; }
+    public DateOnly EndDate { get; set; }
 
     [Column(TypeName = "decimal(18,2)")]
     public decimal Cost { get; set; }
@@ -21,14 +21,18 @@ public class Rent
     public string Status { get; set; }
 
     // Foreign keys
-    public int VehicleId { get; set; }
+    
+    public string VehicleLicensePlate { get; set; }
     public Vehicle Vehicle { get; set; }
 
-    public int ClientId { get; set; }
+    public string ClientEmail { get; set; }
     public Client Client { get; set; }
     
+    //Foreign key
+    public int WorkerId { get; set; }
     public Worker Worker { get; set; }
 
     // Navigation property
-    public ICollection<Payment> Payments { get; set; }
+    public Invoice Invoice { get; set; }
+    public ICollection<DamageReport>? DamageReports { get; set; }
 }

@@ -12,10 +12,10 @@ public class Review
     [MaxLength(500)]
     public string Comment { get; set; }
 
-    public DateTime ReviewDate { get; set; }
+    public DateOnly ReviewDate { get; set; }
 
     // Foreign Key - Client (the client who wrote the review)
-    public int ClientId { get; set; }
+    public string ClientEmail { get; set; }
     public Client Client { get; set; } // Navigation property
 
     // Foreign Key - Rent (the rental the review is associated with)

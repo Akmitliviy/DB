@@ -16,11 +16,11 @@ public class InsurancePolicy
     [Column(TypeName = "decimal(18,2)")]
     public decimal Cost { get; set; }
 
-    public DateTime StartDate { get; set; }
+    public DateOnly StartDate { get; set; }
 
-    public DateTime EndDate { get; set; }
+    public DateOnly EndDate { get; set; }
 
-    // Foreign Key - Rent
-    public int RentId { get; set; }
-    public Rent Rent { get; set; } // Navigation property
+    // Foreign Key - Vehicle
+    public string VehicleLicensePlate { get; set; }
+    public Vehicle Vehicle { get; set; } // Navigation property
 }

@@ -8,7 +8,7 @@ public class ServiceRecord
     [Key]
     public int ID { get; set; }
 
-    public DateTime ServiceDate { get; set; }
+    public DateOnly ServiceDate { get; set; }
 
     public string Description { get; set; }
 
@@ -16,6 +16,6 @@ public class ServiceRecord
     public decimal ServiceCost { get; set; }
 
     // Foreign Key - Auto
-    public int AutoId { get; set; }
+    public string VehicleLicencePlate { get; set; }
     public Vehicle Vehicle { get; set; } // Navigation property
 }

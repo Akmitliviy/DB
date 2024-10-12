@@ -6,8 +6,6 @@ namespace DataBase_EntityFramework;
 public class Vehicle
 {
     [Key]
-    public int ID { get; set; }
-
     [Required]
     [MaxLength(20)]
     public string LicensePlate { get; set; }
@@ -25,10 +23,11 @@ public class Vehicle
     [Column(TypeName = "decimal(18,2)")]
     public decimal CostPerDay { get; set; }
     
-    public Rent Rent { get; set; }
+    public Rent? Rent { get; set; }
 
     // Foreign key
-    public int OfficeId { get; set; }
+    public string OfficeName { get; set; }
     public Office Office { get; set; }
     public ICollection<ServiceRecord>? ServiceRecords { get; set; }
+    public ICollection<InsurancePolicy>? InsurancePolicies { get; set; }
 }

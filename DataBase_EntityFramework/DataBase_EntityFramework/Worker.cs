@@ -21,10 +21,7 @@ public class Worker
     [MaxLength(50)]
     public string OccupationalPosition { get; set; }
 
-    // Foreign keys
-    public int? RentId { get; set; }
-    public Rent Rent { get; set; }
-
-    public int OfficeId { get; set; }
+    public string OfficeName { get; set; }
     public Office Office { get; set; }
+    public ICollection<Rent>? Rents { get; set; }
 }

@@ -13,7 +13,7 @@ public class DamageReport
     [Column(TypeName = "decimal(18,2)")]
     public decimal RepairCost { get; set; }
 
-    public DateTime ReportDate { get; set; }
+    public DateOnly ReportDate { get; set; }
 
     // Foreign Key - Rent (since damage reports are usually tied to a rental)
     public int RentId { get; set; }
