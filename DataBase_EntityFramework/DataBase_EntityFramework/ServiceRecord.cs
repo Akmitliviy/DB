@@ -6,16 +6,25 @@ namespace DataBase_EntityFramework;
 public class ServiceRecord
 {
     [Key]
-    public int ID { get; set; }
+    public Guid Id { get; set; }
 
-    public DateOnly ServiceDate { get; set; }
+    [Required]
+    public  DateOnly ServiceDate { get; set; }
 
+    [MaxLength(500)]
+    [Required]
     public string Description { get; set; }
 
     [Column(TypeName = "decimal(18,2)")]
+    [Required]
     public decimal ServiceCost { get; set; }
 
-    // Foreign Key - Auto
+    // Foreign keys
+    
+    [MaxLength(20)]
+    [Required]
     public string VehicleLicencePlate { get; set; }
-    public Vehicle Vehicle { get; set; } // Navigation property
+    
+    // Navigation property
+    public Vehicle Vehicle { get; set; }
 }

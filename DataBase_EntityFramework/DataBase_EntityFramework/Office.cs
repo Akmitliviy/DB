@@ -14,6 +14,7 @@ public class Office
     public string Address { get; set; }
 
     [MaxLength(15)]
+    [Required]
     public string PhoneNumber { get; set; }
 
     // Navigation properties

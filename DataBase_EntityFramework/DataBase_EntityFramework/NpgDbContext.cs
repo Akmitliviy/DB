@@ -36,8 +36,8 @@ public sealed class NpgDbContext : DbContext
         // Rent has a required relationship with Vehicle (one-to-one)
         modelBuilder.Entity<Rent>()
             .HasOne(r => r.Vehicle)
-            .WithOne(v => v.Rent)
-            .HasForeignKey<Rent>(r => r.VehicleLicensePlate)
+            .WithMany(v => v.Rents)
+            .HasForeignKey(r => r.VehicleLicensePlate)
             .OnDelete(DeleteBehavior.Restrict);
 
         // Rent has a required relationship with Client (many-to-one)
@@ -87,6 +87,13 @@ public sealed class NpgDbContext : DbContext
             .HasOne(r => r.Client)
             .WithMany(c => c.Reviews)
             .HasForeignKey(r => r.ClientEmail)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Fluent API for Review
+        modelBuilder.Entity<Review>()
+            .HasOne(r => r.Vehicle)
+            .WithMany(v => v.Reviews)
+            .HasForeignKey(r => r.VehicleLicensePlate)
             .OnDelete(DeleteBehavior.Restrict);
     }
 

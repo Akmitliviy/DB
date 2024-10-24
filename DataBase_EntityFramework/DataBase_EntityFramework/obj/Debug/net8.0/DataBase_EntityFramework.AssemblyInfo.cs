@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DataBase_EntityFramework")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+846e5008732df79e15af1e8062e57fa5285eb39e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a6379d1a9c77ef603cf23f3ebca83d2407e2130")]
 [assembly: System.Reflection.AssemblyProductAttribute("DataBase_EntityFramework")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DataBase_EntityFramework")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

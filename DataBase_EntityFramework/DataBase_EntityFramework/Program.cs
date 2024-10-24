@@ -34,7 +34,7 @@ public class Program
             FuelType = "Gasoline",
             Mileage = 25000,
             CostPerDay = 14000,
-            OfficeName = "HeadQuarters"
+            Office = Offices[0],
         },
         new()
         {
@@ -44,7 +44,7 @@ public class Program
             FuelType = "Gasoline",
             Mileage = 13000,
             CostPerDay = 16000,
-            OfficeName = "New York"
+            Office = Offices[2]
         }
     ];
     
@@ -100,7 +100,7 @@ public class Program
             EndDate = new DateOnly(2024, 10, 5),
             Cost = 70000,
             Status = "Completed",
-            WorkerId = 1
+            Worker = Workers[0]
         },
 
         new()
@@ -111,7 +111,7 @@ public class Program
             EndDate = new DateOnly(2024, 10, 15),
             Cost = 80000,
             Status = "Ongoing",
-            WorkerId = 2
+            Worker = Workers[1]
         }
     ];
     
@@ -119,7 +119,7 @@ public class Program
     [
         new()
         {
-            RentId = 1, // Rent for Honda NSX
+            Rent = Rents[0], // Rent for Honda NSX
             PayTerm = new DateOnly(2024, 10, 1),
             TotalCost = 70000,
             PaymentType = "Credit Card"
@@ -127,7 +127,7 @@ public class Program
 
         new()
         {
-            RentId = 2, // Rent for Porsche Carrera GT
+            Rent = Rents[1], // Rent for Porsche Carrera GT
             PayTerm = new DateOnly(2024, 10, 10),
             TotalCost = 80000,
             PaymentType = "Cash"
@@ -142,7 +142,7 @@ public class Program
             Cost = 5000,
             StartDate = new DateOnly(2024, 9, 30),
             EndDate = new DateOnly(2024, 10, 5),
-            VehicleLicensePlate = "BC 4534 BB" // Honda NSX Rent
+            Vehicle = Vehicles[0] // Honda NSX Rent
         },
 
         new()
@@ -152,7 +152,7 @@ public class Program
             Cost = 6000,
             StartDate = new DateOnly(2024, 10, 9),
             EndDate = new DateOnly(2024, 10, 15),
-            VehicleLicensePlate = "AE 7345 AB" // Porsche Carrera GT Rent
+            Vehicle = Vehicles[1] // Porsche Carrera GT Rent
         }
     ];
     private static List<DamageReport> DamageReports =
@@ -162,7 +162,7 @@ public class Program
             Description = "Minor scratch on front bumper",
             RepairCost = 1000,
             ReportDate = new DateOnly(2024, 10, 5),
-            RentId = 1 // Honda NSX Rent
+            Rent = Rents[0] // Honda NSX Rent
         },
 
         new()
@@ -170,7 +170,7 @@ public class Program
             Description = "Broken tail light",
             RepairCost = 2000,
             ReportDate = new DateOnly(2024, 10, 12),
-            RentId = 2 // Porsche Carrera GT Rent
+            Rent = Rents[1] // Porsche Carrera GT Rent
         }
     ];
     private static List<ServiceRecord> ServiceRecords =
@@ -180,7 +180,7 @@ public class Program
             ServiceDate = new DateOnly(2024, 9, 20),
             Description = "Oil change and tire rotation",
             ServiceCost = 3000,
-            VehicleLicencePlate = "BC 4534 BB" // Honda NSX
+            Vehicle = Vehicles[0] // Honda NSX
         },
 
         new()
@@ -188,7 +188,7 @@ public class Program
             ServiceDate = new DateOnly(2024, 9, 25),
             Description = "Brake pad replacement",
             ServiceCost = 4000,
-            VehicleLicencePlate = "AE 7345 AB" // Porsche Carrera GT
+            Vehicle = Vehicles[1] // Porsche Carrera GT
         }
     ];
     private static List<Review> Reviews =
@@ -199,7 +199,7 @@ public class Program
             Comment = "Great car and service!",
             ReviewDate = new DateOnly(2024, 10, 6),
             ClientEmail = "alice.johnson@email.com", // Alice Johnson
-            RentId = 1 // Honda NSX Rent
+            Vehicle = Vehicles[0]// Honda NSX Rent
         },
 
         new()
@@ -208,7 +208,7 @@ public class Program
             Comment = "Good experience, but the car had some issues.",
             ReviewDate = new DateOnly(2024, 10, 16),
             ClientEmail = "bob.brown@email.com", // Bob Brown
-            RentId = 2 // Porsche Carrera GT Rent
+            Vehicle = Vehicles[1] // Porsche Carrera GT Rent
         }
     ];
 
@@ -224,55 +224,64 @@ public class Program
 
     private static void Populate(NpgDbContext context)
     {
-        // foreach (var entity in Offices)
-        // {
-        //     context.Offices.Add(entity);
-        //     context.SaveChanges();
-        // }
-        // foreach (var entity in Vehicles)
-        // {
-        //     context.Vehicles.Add(entity);
-        //     context.SaveChanges();
-        // }
-        // foreach (var entity in Workers)
-        // {
-        //     context.Workers.Add(entity);
-        //     context.SaveChanges();
-        // }
-        // foreach (var entity in Clients)
-        // {
-        //     context.Clients.Add(entity);
-        //     context.SaveChanges();
-        // }
-        // foreach (var entity in Rents)
-        // {
-        //     context.Rents.Add(entity);
-        //     context.SaveChanges();
-        // }
-        // foreach (var entity in Invoices)
-        // {
-        //     context.Invoices.Add(entity);
-        //     context.SaveChanges();
-        // }
-        // foreach (var entity in InsurancePolicies)
-        // {
-        //     context.InsurancePolicies.Add(entity);
-        //     context.SaveChanges();
-        // }
-        // foreach (var entity in DamageReports)
-        // {
-        //     context.DamageReports.Add(entity);
-        //     context.SaveChanges();
-        // }
-        // foreach (var entity in ServiceRecords)
-        // {
-        //     context.ServiceRecords.Add(entity);
-        //     context.SaveChanges();
-        // }
-        // foreach (var entity in Reviews)
-        // {
-        //     context.Reviews.Add(entity);
-        //     context.SaveChanges();
-        // }
+        foreach (var entity in Offices)
+        {
+            context.Offices.Add(entity);
+            context.SaveChanges();
+        }
+
+        foreach (var entity in Vehicles)
+        {
+            context.Vehicles.Add(entity);
+            context.SaveChanges();
+        }
+
+        foreach (var entity in Workers)
+        {
+            context.Workers.Add(entity);
+            context.SaveChanges();
+        }
+
+        foreach (var entity in Clients)
+        {
+            context.Clients.Add(entity);
+            context.SaveChanges();
+        }
+
+        foreach (var entity in Rents)
+        {
+            context.Rents.Add(entity);
+            context.SaveChanges();
+        }
+
+        foreach (var entity in Invoices)
+        {
+            context.Invoices.Add(entity);
+            context.SaveChanges();
+        }
+
+        foreach (var entity in InsurancePolicies)
+        {
+            context.InsurancePolicies.Add(entity);
+            context.SaveChanges();
+        }
+
+        foreach (var entity in DamageReports)
+        {
+            context.DamageReports.Add(entity);
+            context.SaveChanges();
+        }
+
+        foreach (var entity in ServiceRecords)
+        {
+            context.ServiceRecords.Add(entity);
+            context.SaveChanges();
+        }
+
+        foreach (var entity in Reviews)
+        {
+            context.Reviews.Add(entity);
+            context.SaveChanges();
+        }
     }
 }

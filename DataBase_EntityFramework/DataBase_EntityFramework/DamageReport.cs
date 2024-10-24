@@ -6,16 +6,22 @@ namespace DataBase_EntityFramework;
 public class DamageReport
 {
     [Key]
-    public int ID { get; set; }
+    public Guid Id { get; set; }
 
+    [MaxLength(500)]
+    [Required]
     public string Description { get; set; }
 
     [Column(TypeName = "decimal(18,2)")]
+    [Required]
     public decimal RepairCost { get; set; }
 
+    [Required]
     public DateOnly ReportDate { get; set; }
 
-    // Foreign Key - Rent (since damage reports are usually tied to a rental)
-    public int RentId { get; set; }
-    public Rent Rent { get; set; } // Navigation property
+    // Foreign keys
+    public Guid RentId { get; set; }
+    
+    // Navigation properties
+    public Rent Rent { get; set; } 
 }
