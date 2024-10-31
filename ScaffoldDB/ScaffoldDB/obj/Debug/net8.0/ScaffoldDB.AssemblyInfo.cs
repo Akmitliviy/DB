@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ScaffoldDB")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a6379d1a9c77ef603cf23f3ebca83d2407e2130")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb130beb233fb25c7009d1f1b889fa3c2a52b907")]
 [assembly: System.Reflection.AssemblyProductAttribute("ScaffoldDB")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ScaffoldDB")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

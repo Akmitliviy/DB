@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zKTOL8hz37M=",
+  "dgSpecHash": "VIWlwkN29wQ=",
   "success": true,
   "projectFilePath": "E:\\A_University\\A_term5\\DB\\ScaffoldDB\\ScaffoldDB\\ScaffoldDB.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Akmitliviy\\.nuget\\packages\\bogus\\35.6.1\\bogus.35.6.1.nupkg.sha512",
     "C:\\Users\\Akmitliviy\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Akmitliviy\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\Akmitliviy\\.nuget\\packages\\microsoft.build.framework\\17.8.3\\microsoft.build.framework.17.8.3.nupkg.sha512",

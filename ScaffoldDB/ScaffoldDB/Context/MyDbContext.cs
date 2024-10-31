@@ -39,8 +39,7 @@ public sealed partial class MyDbContext : DbContext
     public DbSet<Worker> Workers { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=TestDB;Username=postgres;Password=baest4rd");
+        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=CarRents;Username=postgres;Password=baest4rd");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

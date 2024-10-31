@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "ScaffoldDB/1.0.0": {
         "dependencies": {
+          "Bogus": "35.6.1",
           "Microsoft.EntityFrameworkCore": "9.0.0-rc.2.24474.1",
           "Microsoft.EntityFrameworkCore.Design": "9.0.0-rc.2.24474.1",
           "Microsoft.EntityFrameworkCore.Tools": "9.0.0-rc.2.24474.1",
@@ -15,6 +16,14 @@
         },
         "runtime": {
           "ScaffoldDB.dll": {}
+        }
+      },
+      "Bogus/35.6.1": {
+        "runtime": {
+          "lib/net6.0/Bogus.dll": {
+            "assemblyVersion": "35.6.1.0",
+            "fileVersion": "35.6.1.0"
+          }
         }
       },
       "Humanizer.Core/2.14.1": {
@@ -661,6 +670,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Bogus/35.6.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QPJ8zLL0ScEunEoUNhMDigD4ykA/n7vXCZUQdGCFGHBfP2mNYjiCzR9Cj12eaFaDlwkhIC1HKQZihWl8OgbLsw==",
+      "path": "bogus/35.6.1",
+      "hashPath": "bogus.35.6.1.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
