@@ -29,6 +29,8 @@ public partial class Rent
 
     public virtual Invoice? Invoice { get; set; }
 
+    public virtual RentStatus StatusNavigation { get; set; } = null!;
+
     public virtual Vehicle VehicleLicensePlateNavigation { get; set; } = null!;
 
     public virtual Worker Worker { get; set; } = null!;

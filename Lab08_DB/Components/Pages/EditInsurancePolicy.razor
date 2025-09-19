@@ -1,0 +1,69 @@
+@page "/edit-insurance-policy"
+
+<PageTitle>Edit InsurancePolicy</PageTitle>
+
+    <RadzenColumn SizeMD=12>
+        <RadzenAlert Shade="Shade.Lighter" Variant="Variant.Flat" Size="AlertSize.Small" AlertStyle="AlertStyle.Danger" Visible="@errorVisible">Cannot save InsurancePolicy</RadzenAlert>
+        <RadzenTemplateForm TItem="Lab08DB.Models.CarRents.InsurancePolicy" Data="@insurancePolicy" Visible="@(insurancePolicy != null)" Submit="@FormSubmit">
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Policy Number" Component="PolicyNumber" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenTextBox style="display: block; width: 100%" @bind-Value="@insurancePolicy.PolicyNumber" Name="PolicyNumber" />
+                    <RadzenRequiredValidator Component="PolicyNumber" Text="PolicyNumber is required" />
+                </RadzenColumn>
+            </RadzenRow>
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Provider" Component="Provider" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenTextBox style="display: block; width: 100%" @bind-Value="@insurancePolicy.Provider" Name="Provider" />
+                    <RadzenRequiredValidator Component="Provider" Text="Provider is required" />
+                </RadzenColumn>
+            </RadzenRow>
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Cost" Component="Cost" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenNumeric style="display: block; width: 100%" @bind-Value="@insurancePolicy.Cost" Name="Cost" />
+                    <RadzenRequiredValidator Component="Cost" Text="Cost is required" />
+                </RadzenColumn>
+            </RadzenRow>
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Start Date" Component="StartDate" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenDatePicker DateFormat="MM/dd/yyyy" style="display: block; width: 100%" @bind-Value="@insurancePolicy.StartDate" Name="StartDate" />
+                    <RadzenRequiredValidator Component="StartDate" Text="StartDate is required" />
+                </RadzenColumn>
+            </RadzenRow>
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="End Date" Component="EndDate" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenDatePicker DateFormat="MM/dd/yyyy" style="display: block; width: 100%" @bind-Value="@insurancePolicy.EndDate" Name="EndDate" />
+                    <RadzenRequiredValidator Component="EndDate" Text="EndDate is required" />
+                </RadzenColumn>
+            </RadzenRow>
+            <RadzenRow style="margin-bottom: 1rem">
+                <RadzenColumn SizeMD="3">
+                    <RadzenLabel Text="Vehicle" Component="Vehicle" style="width: 100%" />
+                </RadzenColumn>
+                <RadzenColumn SizeMD="9">
+                    <RadzenDropDownDataGrid Data="@vehiclesForVehicleLicensePlate" TextProperty="LicensePlate" ValueProperty="LicensePlate" AllowClear=true
+                         Placeholder="Choose Vehicle" style="display: block; width: 100%" @bind-Value="@insurancePolicy.VehicleLicensePlate" Name="VehicleLicensePlate"
+                           />
+                </RadzenColumn>
+            </RadzenRow>
+          <RadzenStack  Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.End" Gap="0.5rem">
+                    <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Text="Save" Variant="Variant.Flat" />
+                    <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Variant="Variant.Flat" Click="@CancelButtonClick"  />
+          </RadzenStack>
+        </RadzenTemplateForm>
+    </RadzenColumn>
+

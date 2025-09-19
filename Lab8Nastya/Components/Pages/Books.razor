@@ -1,0 +1,59 @@
+@page "/books"
+
+<PageTitle>Books</PageTitle>
+<RadzenStack>
+    <RadzenRow AlignItems="AlignItems.Center">
+        <RadzenColumn Size="12" SizeMD="6">
+            <RadzenText Text="Books" TextStyle="TextStyle.H3" TagName="TagName.H1" style="margin: 0" />
+        </RadzenColumn>
+        <RadzenColumn Size="12" SizeMD="6">
+            <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.End" Gap="0.5rem">
+                <RadzenSplitButton Icon="get_app" Text="Export" Click="@ExportClick" Variant="Variant.Flat" Shade="Shade.Lighter">
+                    <RadzenSplitButtonItem Text="Excel" Value="xlsx" />
+                    <RadzenSplitButtonItem Text="CSV" Value="csv" />
+                </RadzenSplitButton>
+                <RadzenButton Icon="add_circle_outline" Text="Add" Click="@AddButtonClick" Variant="Variant.Flat" />
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+    <RadzenTextBox Placeholder="Search ..." style="display: block; width: 100%" @oninput="@Search" aria-label="Search by all string columns" />
+    <RadzenRow>
+      <RadzenColumn SizeMD=12>
+        <RadzenDataGrid @ref="grid0" ColumnWidth="200px"   AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true" ShowPagingSummary="true" PageSizeOptions=@(new int[]{5, 10, 20, 30})
+            Data="@books" TItem="Lab8Nastya.Models.BookStore.Book" RowDoubleClick="@EditRow">
+            <Columns>
+                <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.Book" Property="BookId" Title="Book Id">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.Book" Property="Title" Title="Title">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.Book" Property="Author.FirstName" Title="Author">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.Book" Property="Category.Name" Title="Category">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.Book" Property="PublicationYear" Title="Publication Year">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.Book" Property="Publisher.Name" Title="Publisher">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.Book" Property="Description" Title="Description">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.Book" Property="Price" Title="Price">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.Book" Property="DiscountPercentage" Title="Discount Percentage">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.Book" Property="FinalPrice" Title="Final Price">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.Book" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+                    <Template Context="book">
+
+                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Size="ButtonSize.Medium"
+                            Shade="Shade.Lighter" Variant="Variant.Flat"
+                            Click=@(args => GridDeleteButtonClick(args, book)) @onclick:stopPropagation="true" />
+                    </Template>
+                </RadzenDataGridColumn>
+            </Columns>
+
+        </RadzenDataGrid>
+
+    </RadzenColumn>
+  </RadzenRow>
+</RadzenStack>

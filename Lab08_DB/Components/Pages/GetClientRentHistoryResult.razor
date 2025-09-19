@@ -1,0 +1,27 @@
+@page "/get-client-rent-history-result"
+@inject Lab08DB.CarRentsService CarRentsService
+
+<PageTitle>Client Rent History</PageTitle>
+
+<RadzenStack>
+    <RadzenTextBox Placeholder="Enter client email" style="margin-bottom: 1rem;" @bind-Value="clientEmail" />
+    <RadzenButton Text="Search" Click="@LoadHistory" style="margin-bottom: 1rem;" />
+    <RadzenDataGrid Data="@rentHistory" TItem="Lab08DB.Models.CarRents.GetClientRentHistoryResult" ColumnWidth="200px" AllowPaging="true" PageSize="10">
+        <Columns>
+            <RadzenDataGridColumn TItem="Lab08DB.Models.CarRents.GetClientRentHistoryResult" Property="Id" Title="Rent ID" />
+            <RadzenDataGridColumn TItem="Lab08DB.Models.CarRents.GetClientRentHistoryResult" Property="StartDate" Title="Start Date" />
+            <RadzenDataGridColumn TItem="Lab08DB.Models.CarRents.GetClientRentHistoryResult" Property="EndDate" Title="End Date" />
+            <RadzenDataGridColumn TItem="Lab08DB.Models.CarRents.GetClientRentHistoryResult" Property="Status" Title="Status" />
+        </Columns>
+    </RadzenDataGrid>
+</RadzenStack>
+
+@code {
+    private string clientEmail;
+    private IEnumerable<Lab08DB.Models.CarRents.GetClientRentHistoryResult> rentHistory;
+
+    private async Task LoadHistory()
+    {
+        rentHistory = await CarRentsService.GetClientRentHistoryAsync(clientEmail);
+    }
+}

@@ -17,6 +17,8 @@ public partial class Client
 
     public DateOnly BirthDate { get; set; }
 
+    public DateTime? RowVersion { get; set; }
+
     public virtual ICollection<Rent> Rents { get; set; } = new List<Rent>();
 
     public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();

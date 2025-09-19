@@ -7,8 +7,6 @@ public partial class Review
 {
     public Guid Id { get; set; }
 
-    public int Rating { get; set; }
-
     public string? Comment { get; set; }
 
     public DateOnly ReviewDate { get; set; }
@@ -17,7 +15,11 @@ public partial class Review
 
     public string VehicleLicensePlate { get; set; } = null!;
 
+    public Guid? RatingId { get; set; }
+
     public virtual Client ClientEmailNavigation { get; set; } = null!;
+
+    public virtual Rating? Rating { get; set; }
 
     public virtual Vehicle VehicleLicensePlateNavigation { get; set; } = null!;
 }

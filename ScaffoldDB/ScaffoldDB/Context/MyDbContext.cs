@@ -5,40 +5,45 @@ using ScaffoldDB.Migrations;
 
 namespace ScaffoldDB.Context;
 
-public sealed partial class MyDbContext : DbContext
+public partial class MyDbContext : DbContext
 {
     public MyDbContext()
     {
-        Database.EnsureCreated();
     }
 
     public MyDbContext(DbContextOptions<MyDbContext> options)
         : base(options)
     {
-        Database.EnsureCreated();
     }
 
-    public DbSet<Client> Clients { get; set; }
+    public virtual DbSet<Client> Clients { get; set; }
 
-    public DbSet<DamageReport> DamageReports { get; set; }
+    public virtual DbSet<ClientRentalStatistic> ClientRentalStatistics { get; set; }
 
-    public DbSet<InsurancePolicy> InsurancePolicies { get; set; }
+    public virtual DbSet<DamageReport> DamageReports { get; set; }
 
-    public DbSet<Invoice> Invoices { get; set; }
+    public virtual DbSet<InsurancePolicy> InsurancePolicies { get; set; }
 
-    public DbSet<Office> Offices { get; set; }
+    public virtual DbSet<Invoice> Invoices { get; set; }
 
-    public DbSet<Rent> Rents { get; set; }
+    public virtual DbSet<Office> Offices { get; set; }
 
-    public DbSet<Review> Reviews { get; set; }
+    public virtual DbSet<Rating> Ratings { get; set; }
 
-    public DbSet<ServiceRecord> ServiceRecords { get; set; }
+    public virtual DbSet<Rent> Rents { get; set; }
 
-    public DbSet<Vehicle> Vehicles { get; set; }
+    public virtual DbSet<RentStatus> RentStatuses { get; set; }
 
-    public DbSet<Worker> Workers { get; set; }
+    public virtual DbSet<Review> Reviews { get; set; }
+
+    public virtual DbSet<ServiceRecord> ServiceRecords { get; set; }
+
+    public virtual DbSet<Vehicle> Vehicles { get; set; }
+
+    public virtual DbSet<Worker> Workers { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=CarRents;Username=postgres;Password=baest4rd");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -49,11 +54,27 @@ public sealed partial class MyDbContext : DbContext
         {
             entity.HasKey(e => e.Email);
 
+            entity.HasIndex(e => e.Email, "IX_Clients_Email");
+
+            entity.HasIndex(e => e.FirstName, "IX_Clients_FirstName");
+
             entity.Property(e => e.Email).HasMaxLength(100);
             entity.Property(e => e.DriverLicense).HasMaxLength(20);
             entity.Property(e => e.FirstName).HasMaxLength(50);
             entity.Property(e => e.LastName).HasMaxLength(50);
             entity.Property(e => e.PhoneNumber).HasMaxLength(15);
+            entity.Property(e => e.RowVersion).HasColumnType("timestamp without time zone");
+        });
+
+        modelBuilder.Entity<ClientRentalStatistic>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("ClientRentalStatistics");
+
+            entity.Property(e => e.Email).HasMaxLength(100);
+            entity.Property(e => e.FirstName).HasMaxLength(50);
+            entity.Property(e => e.LastName).HasMaxLength(50);
         });
 
         modelBuilder.Entity<DamageReport>(entity =>
@@ -66,7 +87,7 @@ public sealed partial class MyDbContext : DbContext
 
             entity.HasOne(d => d.Rent).WithMany(p => p.DamageReports)
                 .HasForeignKey(d => d.RentId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
         modelBuilder.Entity<InsurancePolicy>(entity =>
@@ -81,7 +102,7 @@ public sealed partial class MyDbContext : DbContext
 
             entity.HasOne(d => d.VehicleLicensePlateNavigation).WithMany(p => p.InsurancePolicies)
                 .HasForeignKey(d => d.VehicleLicensePlate)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
         });
 
         modelBuilder.Entity<Invoice>(entity =>
@@ -106,9 +127,20 @@ public sealed partial class MyDbContext : DbContext
             entity.Property(e => e.PhoneNumber).HasMaxLength(15);
         });
 
+        modelBuilder.Entity<Rating>(entity =>
+        {
+            entity.Property(e => e.Id).ValueGeneratedNever();
+            entity.Property(e => e.Comment).HasMaxLength(500);
+            entity.Property(e => e.Rating1).HasColumnName("Rating");
+        });
+
         modelBuilder.Entity<Rent>(entity =>
         {
             entity.HasIndex(e => e.ClientEmail, "IX_Rents_ClientEmail");
+
+            entity.HasIndex(e => new { e.ClientEmail, e.VehicleLicensePlate }, "IX_Rents_ClientEmail_VehicleLicensePlate");
+
+            entity.HasIndex(e => e.Cost, "IX_Rents_Cost");
 
             entity.HasIndex(e => e.VehicleLicensePlate, "IX_Rents_VehicleLicensePlate");
 
@@ -127,6 +159,11 @@ public sealed partial class MyDbContext : DbContext
                 .HasForeignKey(d => d.ClientEmail)
                 .HasConstraintName("fk_rents_clients_clientemail");
 
+            entity.HasOne(d => d.StatusNavigation).WithMany(p => p.Rents)
+                .HasForeignKey(d => d.Status)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_rents_status");
+
             entity.HasOne(d => d.VehicleLicensePlateNavigation).WithMany(p => p.Rents)
                 .HasForeignKey(d => d.VehicleLicensePlate)
                 .OnDelete(DeleteBehavior.Restrict);
@@ -134,6 +171,13 @@ public sealed partial class MyDbContext : DbContext
             entity.HasOne(d => d.Worker).WithMany(p => p.Rents)
                 .HasForeignKey(d => d.WorkerId)
                 .HasConstraintName("fk_rents_workers_workerid");
+        });
+
+        modelBuilder.Entity<RentStatus>(entity =>
+        {
+            entity.HasKey(e => e.Status);
+
+            entity.Property(e => e.Status).HasMaxLength(20);
         });
 
         modelBuilder.Entity<Review>(entity =>
@@ -151,6 +195,10 @@ public sealed partial class MyDbContext : DbContext
                 .HasForeignKey(d => d.ClientEmail)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            entity.HasOne(d => d.Rating).WithMany(p => p.Reviews)
+                .HasForeignKey(d => d.RatingId)
+                .HasConstraintName("fk_reviews_ratings_ratingid");
+
             entity.HasOne(d => d.VehicleLicensePlateNavigation).WithMany(p => p.Reviews)
                 .HasForeignKey(d => d.VehicleLicensePlate)
                 .OnDelete(DeleteBehavior.Restrict);
@@ -158,21 +206,26 @@ public sealed partial class MyDbContext : DbContext
 
         modelBuilder.Entity<ServiceRecord>(entity =>
         {
-            entity.HasIndex(e => e.VehicleLicencePlate, "IX_ServiceRecords_VehicleLicencePlate");
+            entity.HasIndex(e => e.ServiceDate, "IX_ServiceRecords_ServiceDate");
+
+            entity.HasIndex(e => e.VehicleLicensePlate, "IX_ServiceRecords_VehicleLicencePlate");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Description).HasMaxLength(500);
             entity.Property(e => e.ServiceCost).HasPrecision(18, 2);
-            entity.Property(e => e.VehicleLicencePlate).HasMaxLength(20);
+            entity.Property(e => e.VehicleLicensePlate).HasMaxLength(20);
 
-            entity.HasOne(d => d.VehicleLicencePlateNavigation).WithMany(p => p.ServiceRecords)
-                .HasForeignKey(d => d.VehicleLicencePlate)
-                .OnDelete(DeleteBehavior.Restrict);
+            entity.HasOne(d => d.VehicleLicensePlateNavigation).WithMany(p => p.ServiceRecords)
+                .HasForeignKey(d => d.VehicleLicensePlate)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK_ServiceRecords_Vehicles_VehicleLicencePlate");
         });
 
         modelBuilder.Entity<Vehicle>(entity =>
         {
             entity.HasKey(e => e.LicensePlate);
+
+            entity.HasIndex(e => e.LicensePlate, "IX_Vehicles_LicensePlate");
 
             entity.HasIndex(e => e.OfficeName, "IX_Vehicles_OfficeName");
 
@@ -190,6 +243,8 @@ public sealed partial class MyDbContext : DbContext
         modelBuilder.Entity<Worker>(entity =>
         {
             entity.HasIndex(e => e.OfficeName, "IX_Workers_OfficeName");
+
+            entity.HasIndex(e => e.PhoneNumber, "IX_Workers_PhoneNumber_HASH").HasMethod("hash");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.FirstName).HasMaxLength(50);

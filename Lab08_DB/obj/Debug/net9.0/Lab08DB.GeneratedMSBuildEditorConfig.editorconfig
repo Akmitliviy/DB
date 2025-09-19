@@ -1,0 +1,173 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Lab08DB
+build_property.RootNamespace = Lab08DB
+build_property.ProjectDir = E:\A_University\A_term5\DB\Lab08_DB\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\A_University\A_term5\DB\Lab08_DB
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/AddClient.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRDbGllbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/AddDamageReport.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGREYW1hZ2VSZXBvcnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/AddInsurancePolicy.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRJbnN1cmFuY2VQb2xpY3kucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/AddInvoice.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRJbnZvaWNlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/AddOffice.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRPZmZpY2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/AddRent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRSZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/AddReview.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRSZXZpZXcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/AddServiceRecord.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRTZXJ2aWNlUmVjb3JkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/AddVehicle.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRWZWhpY2xlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/AddWorker.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZGRXb3JrZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/Clients.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDbGllbnRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/DamageReports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYW1hZ2VSZXBvcnRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/EditClient.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0Q2xpZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/EditDamageReport.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0RGFtYWdlUmVwb3J0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/EditInsurancePolicy.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0SW5zdXJhbmNlUG9saWN5LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/EditInvoice.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0SW52b2ljZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/EditOffice.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0T2ZmaWNlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/EditRent.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0UmVudC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/EditReview.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0UmV2aWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/EditServiceRecord.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0U2VydmljZVJlY29yZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/EditVehicle.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0VmVoaWNsZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/EditWorker.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0V29ya2VyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/GetClientRentHistoryResult.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xHZXRDbGllbnRSZW50SGlzdG9yeVJlc3VsdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/InsurancePolicies.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbnN1cmFuY2VQb2xpY2llcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/Invoices.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbnZvaWNlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/Offices.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xPZmZpY2VzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/Rents.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZW50cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/Reviews.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZXZpZXdzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/ServiceRecords.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTZXJ2aWNlUmVjb3Jkcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/Vehicles.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xWZWhpY2xlcy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Pages/Workers.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXb3JrZXJzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/A_University/A_term5/DB/Lab08_DB/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 

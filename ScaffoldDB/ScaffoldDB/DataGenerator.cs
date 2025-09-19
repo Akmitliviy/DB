@@ -241,7 +241,7 @@ namespace ScaffoldDB
                     ServiceDate = StartDates.ElementAt(i),
                     Description = Descriptions.ElementAt(i),
                     ServiceCost = Costs.ElementAt(i),
-                    VehicleLicencePlate = GetRandomElementOf(Vehicles.Select(x => x.LicensePlate).ToList())
+                    VehicleLicensePlate = GetRandomElementOf(Vehicles.Select(x => x.LicensePlate).ToList())
                 });
             }
             
@@ -257,7 +257,6 @@ namespace ScaffoldDB
                 reviews.Add(new Review
                 {
                     Id = Guid.NewGuid(),
-                    Rating = random.Next(1, 6),
                     Comment = Descriptions.ElementAt(i),
                     ReviewDate = EndDates.ElementAt(i),
                     ClientEmail = Emails.ElementAt(i),

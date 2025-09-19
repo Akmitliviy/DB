@@ -13,7 +13,7 @@ public partial class ServiceRecord
 
     public decimal ServiceCost { get; set; }
 
-    public string VehicleLicencePlate { get; set; } = null!;
+    public string VehicleLicensePlate { get; set; } = null!;
 
-    public virtual Vehicle VehicleLicencePlateNavigation { get; set; } = null!;
+    public virtual Vehicle VehicleLicensePlateNavigation { get; set; } = null!;
 }

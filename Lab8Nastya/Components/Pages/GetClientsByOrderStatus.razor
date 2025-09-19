@@ -1,0 +1,80 @@
+@page "/get-clients-by-order-status"
+@inject Lab8Nastya.BookStoreService BookStoreService
+
+
+<PageTitle>Clients By Order Status</PageTitle>
+<RadzenStack>
+    <RadzenRow AlignItems="AlignItems.Center">
+        <RadzenColumn Size="12" SizeMD="6">
+            <RadzenText Text="Clients By Order Status" TextStyle="TextStyle.H3" TagName="TagName.H1" style="margin: 0" />
+        </RadzenColumn>
+        <RadzenColumn Size="12" SizeMD="6">
+            <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.End" Gap="0.5rem">
+                <RadzenSplitButton Icon="get_app" Text="Export" Click="@ExportClick" Variant="Variant.Flat" Shade="Shade.Lighter">
+                    <RadzenSplitButtonItem Text="Excel" Value="xlsx" />
+                    <RadzenSplitButtonItem Text="CSV" Value="csv" />
+                </RadzenSplitButton>
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+    <RadzenTextBox Placeholder="Search ..." style="display: block; width: 100%" @oninput="@Search" aria-label="Search by all string columns" />
+    <RadzenRow>
+        <RadzenColumn SizeMD=12>
+            <RadzenDataGrid @ref="grid0" ColumnWidth="200px" AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true" ShowPagingSummary="true" PageSizeOptions=@(new int[]{5, 10, 20, 30})
+                Data="@clients" TItem="Lab8Nastya.Models.BookStore.GetClientsByOrderStatus">
+                <Columns>
+                    <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.GetClientsByOrderStatus" Property="client_id" Title="Client ID">
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.GetClientsByOrderStatus" Property="first_name" Title="First Name">
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.GetClientsByOrderStatus" Property="last_name" Title="Last Name">
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.GetClientsByOrderStatus" Property="email" Title="Email">
+                    </RadzenDataGridColumn>
+                    <RadzenDataGridColumn TItem="Lab8Nastya.Models.BookStore.GetClientsByOrderStatus" Property="phone_number" Title="Phone Number">
+                    </RadzenDataGridColumn>
+                </Columns>
+            </RadzenDataGrid>
+        </RadzenColumn>
+    </RadzenRow>
+</RadzenStack>
+
+@code {
+    private RadzenDataGrid<Lab8Nastya.Models.BookStore.GetClientsByOrderStatus> grid0;
+    private IEnumerable<Lab8Nastya.Models.BookStore.GetClientsByOrderStatus> clients;
+
+    protected override async Task OnInitializedAsync()
+    {
+        clients = await LoadClients();
+    }
+
+    private async Task<IEnumerable<Lab8Nastya.Models.BookStore.GetClientsByOrderStatus>> LoadClients()
+    {
+        return await BookStoreService.GetGetClientsByOrderStatuses(new Radzen.Query());
+    }
+
+    private async Task ExportClick(RadzenSplitButtonItem args)
+    {
+        if (args.Value.ToString() == "xlsx")
+        {
+            await BookStoreService.ExportGetClientsByOrderStatusesToExcel();
+        }
+        else if (args.Value.ToString() == "csv")
+        {
+            await BookStoreService.ExportGetClientsByOrderStatusesToCSV();
+        }
+    }
+
+    private void Search(ChangeEventArgs args)
+    {
+        grid0.Query.Filter = args.Value?.ToString();
+        grid0.Reload();
+    }
+}
+
+<PageTitle>GetClientsByOrderStatus</PageTitle>
+<RadzenRow>
+    <RadzenColumn Size="12">
+        <RadzenText Text="GetClientsByOrderStatus" TextStyle="TextStyle.H3" TagName="TagName.H1" />
+    </RadzenColumn>
+</RadzenRow>

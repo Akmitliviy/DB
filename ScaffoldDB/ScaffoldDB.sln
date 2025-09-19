@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffoldDB", "ScaffoldDB\ScaffoldDB.csproj", "{98BB5543-9D01-4F9D-8515-50FF9CD30BFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaffoldDB", "ScaffoldDB\ScaffoldDB.csproj", "{36E145CF-D585-473B-8719-6B72646DBAA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +8,9 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{98BB5543-9D01-4F9D-8515-50FF9CD30BFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98BB5543-9D01-4F9D-8515-50FF9CD30BFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98BB5543-9D01-4F9D-8515-50FF9CD30BFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98BB5543-9D01-4F9D-8515-50FF9CD30BFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36E145CF-D585-473B-8719-6B72646DBAA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36E145CF-D585-473B-8719-6B72646DBAA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36E145CF-D585-473B-8719-6B72646DBAA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36E145CF-D585-473B-8719-6B72646DBAA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
